@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace TimerSleep
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown -s -t 600";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown/a";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown -s -t 1200";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown -s -t 1800";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown -s -t 2400";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown -s -t 3000";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string Min10 = @"/C " + "shutdown -s -t 3600";
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                button8.Visible = true;
+                label2.Visible = true;
+                textBox1.Visible = true;
+            }
+            else
+            {
+                button8.Visible = false;
+                label2.Visible = false;
+                textBox1.Visible = false;
+            }
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int conv = 0;
+            conv = int.Parse(textBox1.Text);
+            conv = conv * 60;
+
+            string Min10 = @"/C " + "shutdown -s -t "+conv.ToString();
+            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+        }
+    }
+}
