@@ -66,21 +66,32 @@ namespace TimerSleep
                 button8.Visible = true;
                 label2.Visible = true;
                 textBox1.Visible = true;
+                textBox2.Visible = true;
+                label3.Visible = true; 
+
             }
             else
             {
                 button8.Visible = false;
                 label2.Visible = false;
                 textBox1.Visible = false;
+                textBox2.Visible = false;
+                label3.Visible = false;
             }
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            int conv = 0;
+            int conv = 0, convH = 0;
+            if (textBox2.Text == "")
+                convH = 0;
+            else
+            convH = int.Parse(textBox2.Text);
+            
             conv = int.Parse(textBox1.Text);
-            conv = conv * 60;
+            convH = convH * 3600;
+            conv = convH + (conv * 60);
 
             string Min10 = @"/C " + "shutdown -s -t "+conv.ToString();
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
