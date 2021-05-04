@@ -29,36 +29,48 @@ namespace TimerSleep
         {
             string Min10 = @"/C " + "shutdown/a";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 0;
+            label4.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string Min10 = @"/C " + "shutdown -s -t 1200";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 1200;
+            label4.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             string Min10 = @"/C " + "shutdown -s -t 1800";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 1800;
+            label4.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             string Min10 = @"/C " + "shutdown -s -t 2400";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 2400;
+            label4.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             string Min10 = @"/C " + "shutdown -s -t 3000";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 3000;
+            label4.Visible = true;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             string Min10 = @"/C " + "shutdown -s -t 3600";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 3600;
+            label4.Visible = true;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -97,6 +109,9 @@ namespace TimerSleep
 
             string Min10 = @"/C " + "shutdown -s -t "+conv.ToString();
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = conv;
+            label4.Visible = true;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -104,7 +119,14 @@ namespace TimerSleep
            
             if (timeLeft > 0)
             {
-                label4.Text = timeLeft + " seconds";
+                int hora = timeLeft /3600;
+                if (hora < 1)
+                    hora = 0;
+                
+                int minutos = (timeLeft / 60);
+                int segundos = timeLeft - (minutos * 60);
+
+                label4.Text = hora.ToString() +" Horas"+minutos.ToString()+"minutos"+segundos + " seconds";
                 timeLeft--;
               
             }
