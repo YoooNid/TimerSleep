@@ -16,11 +16,13 @@ namespace TimerSleep
         {
             InitializeComponent();
         }
-
+        public int timeLeft;
         private void button1_Click(object sender, EventArgs e)
         {
             string Min10 = @"/C " + "shutdown -s -t 600";
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            timeLeft = 600;
+            label4.Visible = true;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -96,5 +98,18 @@ namespace TimerSleep
             string Min10 = @"/C " + "shutdown -s -t "+conv.ToString();
             System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            if (timeLeft > 0)
+            {
+                label4.Text = timeLeft + " seconds";
+                timeLeft--;
+              
+            }
+           
+        }
+        
     }
 }
