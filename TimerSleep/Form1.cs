@@ -123,8 +123,9 @@ namespace TimerSleep
                 if (hora < 1)
                     hora = 0;
                 
-                int minutos = (timeLeft / 60);
-                int segundos = timeLeft - (minutos * 60);
+                int minutos = (timeLeft / 60 - (hora * 60));
+                int minutos2 = timeLeft / 60;
+                int segundos = timeLeft - (minutos2 * 60);
 
                 label4.Text = hora.ToString() +" Horas"+minutos.ToString()+"minutos"+segundos + " seconds";
                 timeLeft--;
