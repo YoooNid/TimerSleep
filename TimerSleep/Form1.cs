@@ -122,10 +122,11 @@ namespace TimerSleep
                 int hora = timeLeft /3600;
                 if (hora < 1)
                     hora = 0;
+
+                int minutos = CaclHora(timeLeft, hora);
+                int minutos2 = CalcSegundos(timeLeft);
+                int segundos = CalcMinutos(timeLeft, minutos2);
                 
-                int minutos = (timeLeft / 60 - (hora * 60));
-                int minutos2 = timeLeft / 60;
-                int segundos = timeLeft - (minutos2 * 60);
 
                 label4.Text = hora.ToString() +" Horas"+minutos.ToString()+"minutos"+segundos + " seconds";
                 timeLeft--;
@@ -133,6 +134,17 @@ namespace TimerSleep
             }
            
         }
-        
+        static int CalcSegundos (int c) // metodos na propria classe do programa
+        {
+            return c / 60;
+        }
+        static int CalcMinutos (int a, int b)
+        {
+            return a - (b *60);
+        }
+        static int CaclHora (int a, int b)
+        {
+            return (a / 60 - (b * 60));
+        }
     }
 }
