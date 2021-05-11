@@ -19,8 +19,7 @@ namespace TimerSleep
         public int timeLeft;
         private void button1_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown -s -t 600";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(600);
             timeLeft = 600;
             label4.Visible = true;
         }
@@ -35,40 +34,35 @@ namespace TimerSleep
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown -s -t 1200";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(1200);
             timeLeft = 1200;
             label4.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown -s -t 1800";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(1800);
             timeLeft = 1800;
             label4.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown -s -t 2400";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(2400);
             timeLeft = 2400;
             label4.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown -s -t 3000";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(3000);
             timeLeft = 3000;
             label4.Visible = true;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown -s -t 3600";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(3600);
             timeLeft = 3600;
             label4.Visible = true;
         }
@@ -107,8 +101,7 @@ namespace TimerSleep
             convH = convH * 3600;
             conv = convH + (conv * 60);
 
-            string Min10 = @"/C " + "shutdown -s -t "+conv.ToString();
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo P = new Processo(conv);
             timeLeft = conv;
             label4.Visible = true;
 

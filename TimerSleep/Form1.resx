@@ -313,7 +313,7 @@
     <value>336, 42</value>
   </data>
   <data name="button7.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="button7.Text" xml:space="preserve">
     <value>Cancelar agendamento</value>
