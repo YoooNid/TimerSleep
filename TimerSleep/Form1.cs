@@ -26,8 +26,7 @@ namespace TimerSleep
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string Min10 = @"/C " + "shutdown/a";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            Processo a = new Processo();
             timeLeft = 0;
             label4.Visible = false;
         }
