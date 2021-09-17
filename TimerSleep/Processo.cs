@@ -10,14 +10,14 @@ namespace TimerSleep
     {
         public Processo (int a)
         {
-            string Min10 = @"/C " + "shutdown -s -t "+a ;
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            System.Diagnostics.Process.Start("CMD.exe", @"/C " + "shutdown -s -t " + a).WaitForExit();
+
         }
         public Processo() // sobrecarga
         {
-            string Min10 = @"/C " + "shutdown/a";
-            System.Diagnostics.Process.Start("CMD.exe", Min10).WaitForExit();
+            System.Diagnostics.Process.Start("CMD.exe", @"/C " + "shutdown/a").WaitForExit();
         }
+
 
     }
 }

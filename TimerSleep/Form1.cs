@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace TimerSleep
@@ -120,11 +114,16 @@ namespace TimerSleep
                 int segundos = CalcMinutos(timeLeft, minutos2);
                 
 
-                label4.Text = hora.ToString() +" Horas"+minutos.ToString()+"minutos"+segundos + " seconds";
+                label4.Text = hora.ToString() +" Horas"+minutos.ToString()+"minutos"+segundos + " Segundos";
                 timeLeft--;
-              
+
+                if (minutos == 9 && segundos == 59 ||  minutos == 1 && segundos == 59)
+                {
+                    finalizarNotificacao();
+                }
+
             }
-           
+
         }
         static int CalcSegundos (int c) // metodos na propria classe do programa
         {
@@ -137,6 +136,21 @@ namespace TimerSleep
         static int CaclHora (int a, int b)
         {
             return (a / 60 - (b * 60));
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        public void finalizarNotificacao()
+        {
+            System.Diagnostics.Process.Start("CMD.exe", @"/C " + "taskkill /im wlrmdr.exe").WaitForExit();
+
         }
     }
 }
