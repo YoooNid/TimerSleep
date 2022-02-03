@@ -84,19 +84,32 @@ namespace TimerSleep
 
         private void button8_Click(object sender, EventArgs e)
         {
-            int conv = 0, convH = 0;
-            if (textBox2.Text == "")
-                convH = 0;
-            else
-            convH = int.Parse(textBox2.Text);
-            
-            conv = int.Parse(textBox1.Text);
-            convH = convH * 3600;
-            conv = convH + (conv * 60);
 
-            Processo P = new Processo(conv);
-            timeLeft = conv;
-            label4.Visible = true;
+
+            if (textBox1.Text == "" && textBox2.Text == "")
+            {
+                MessageBox.Show("Entrada Invalida");
+                
+            }
+            else
+            {
+                int conv = 0, convH = 0;
+                if (textBox2.Text == "")
+                    convH = 0;
+                else
+                    convH = int.Parse(textBox2.Text);
+                if (textBox1.Text == "")
+                    textBox1.Text = "0";
+                
+                conv = int.Parse(textBox1.Text);
+                convH = convH * 3600;
+                conv = convH + (conv * 60);
+
+                Processo P = new Processo(conv);
+                timeLeft = conv;
+                label4.Visible = true;
+            }
+            
 
         }
 
