@@ -163,6 +163,7 @@ namespace TimerSleep
         public void finalizarNotificacao()
         {
             System.Diagnostics.Process.Start("CMD.exe", @"/C " + "taskkill /im wlrmdr.exe").WaitForExit();
+            System.Diagnostics.Process.Start("CMD.exe", @"/C " + "taskkill /im PickerHost.exe").WaitForExit();
 
         }
     }
